@@ -2,13 +2,14 @@ import pandas as pd
 import numpy as np
 from collections import Counter
 import os
+import time
 
 # Load the processed dataset
 df = pd.read_csv('data/processed.csv')
 
 # Split the data into features and target
-X = df.drop('status', axis=1).values  # Replace 'target' with your actual target column name
-y = df['status'].values
+X = df.drop('Status', axis=1).values 
+y = df['Status'].values
 
 # Split the data into training and testing sets
 def train_test_split(X, y, test_size=0.2):
@@ -35,11 +36,16 @@ def knn_predict(X_train, y_train, X_test, k=3):
         predictions.append(most_common[0][0])
     return predictions
 
+# Measure the time taken to run KNN
+start_time = time.time()
+y_pred = knn_predict(X_train, y_train, X_test)
+end_time = time.time()
+execution_time = end_time - start_time
+
 # Evaluate the model
 def accuracy(y_true, y_pred):
     return np.sum(y_true == y_pred) / len(y_true)
 
-y_pred = knn_predict(X_train, y_train, X_test)
 acc = accuracy(y_test, y_pred)
 
 # Save the model and performance
@@ -52,3 +58,4 @@ np.save('Model/knn_model.npy', {'X_train': X_train, 'y_train': y_train, 'k': 3})
 # Save the performance
 with open('Performance/knn_performance.txt', 'w') as f:
     f.write(f'Accuracy: {acc}\n')
+    f.write(f'Execution Time: {execution_time} seconds\n')
