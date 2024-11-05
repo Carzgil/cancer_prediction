@@ -6,12 +6,6 @@ import numpy as np
 # Load the dataset
 df = pd.read_csv('data/Breast_Cancer_dataset.csv')
 
-# Print column names to verify
-print("Columns in the dataset:", df.columns)
-
-# Check unique values in 'Race' before encoding
-print("Unique values in 'Race' before encoding:", df['Race'].unique())
-
 # Handle missing values
 # For numerical columns
 num_imputer = SimpleImputer(strategy='mean')
