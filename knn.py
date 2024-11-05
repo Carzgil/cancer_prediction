@@ -4,11 +4,11 @@ from collections import Counter
 import os
 
 # Load the processed dataset
-df = pd.read_csv('data/Breast_Cancer_dataset_processed.csv')
+df = pd.read_csv('data/processed.csv')
 
 # Split the data into features and target
-X = df.drop('target', axis=1).values  # Replace 'target' with your actual target column name
-y = df['target'].values
+X = df.drop('status', axis=1).values  # Replace 'target' with your actual target column name
+y = df['status'].values
 
 # Split the data into training and testing sets
 def train_test_split(X, y, test_size=0.2):
