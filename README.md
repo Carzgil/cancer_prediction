@@ -21,7 +21,7 @@ This project involves building and evaluating various machine learning models to
 
 ## Hyperparameter Tuning
 
-- **Random Forest and Gradient Boosting**: Hyperparameters were tuned using `RandomizedSearchCV` to find the best model configurations. Although, both of the models did not see much of a performance increase after tuning. This is either due to the models already being very accurate or the search space being too large for the models to converge. 
+- **Random Forest and Gradient Boosting**: Hyperparameters were tuned using `RandomizedSearchCV` to find the best model configurations. Although, both of the models did not see much of a performance increase after tuning.
 
 ## Performance Visualizations
 
@@ -37,15 +37,22 @@ This bar chart shows the execution time for each model, highlighting the computa
 
 This bar chart compares the accuracy of each model, providing insight into their predictive performance on the dataset. All of the models performed very well, with the exception of the KNN model, which was implemented by scratch.
 
+| Model            | Accuracy (%) | Execution Time (s) |
+|------------------|--------------|--------------------|
+| KNN              | 89.50        | 3.12               |
+| Naive Bayes      | 86.17        | 0.001              |
+| Decision Tree    | 84.35        | 0.007              |
+| Random Forest    | 90.58        | 0.12               |
+| Gradient Boosting| 91.19        | 0.14               |
+| Neural Network   | 87.54        | 0.11               |
+
 ### Accuracy Before and After Hyperparameter Tuning
 
 ![Accuracy Before and After Hyperparameter Tuning](performance/accuracy_comparison_before_after_tuning.png)
 
-This chart compares the accuracy of the Random Forest and Gradient Boosting models before and after hyperparameter tuning, illustrating the impact of tuning on model performance.
+This chart compares the accuracy of the Random Forest and Gradient Boosting models before and after hyperparameter tuning, illustrating the impact of tuning on model performance. As you can see, the performance of the models did not improve after tuning. This is either due to the models already being very accurate or the search space being too large for the models to converge.
 
 ### Conclusion
-
-Through this project, we successfully built and evaluated multiple machine learning models to predict cancer outcomes, achieving an accuracy of up to 90%. This demonstrates the potential of these models in predicting whether a patient would die from breast cancer.
 
 For feature importance, the most prominent features varied across models:
 
@@ -55,3 +62,5 @@ For feature importance, the most prominent features varied across models:
 
 These features are all related to the stage of the cancer, which is a strong indicator of the patient's prognosis. Furthermore, the features weights were all above 0.05, which means that they all had a significant impact on the model's ability to predict the target variable.
 These insights can guide further research and model refinement, emphasizing the importance of data-driven approaches in healthcare.
+
+Through this project, we successfully built and evaluated multiple machine learning models to predict cancer outcomes, achieving an accuracy of up to 90%. This demonstrates the potential of these models in predicting whether a patient would die from breast cancer, according to the features in the dataset.
