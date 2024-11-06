@@ -49,8 +49,9 @@ Through this project, we successfully built and evaluated multiple machine learn
 
 For feature importance, the most prominent features varied across models:
 
-- **Random Forest**: Feature importance can be extracted using the `feature_importances_` attribute. Typically, features like tumor size and stage are significant.
-- **Gradient Boosting**: Similar to Random Forest, feature importance can be assessed, often highlighting tumor characteristics and hormone receptor status.
-- **Decision Tree**: The tree structure itself reveals which features are most important for splits, often aligning with clinical indicators.
+- **Random Forest**: The most important features were `differentiate`, `6th Stage`, and `T Stage`.
+- **Gradient Boosting**: The most important features were `differentiate`, `6th Stage`, and `Tumor Size`.
+- **Decision Tree**: The most important features were `differentiate`, `6th Stage`, and `Reginol Node Positive`.
 
+These features are all related to the stage of the cancer, which is a strong indicator of the patient's prognosis. Furthermore, the features weights were all above 0.05, which means that they all had a significant impact on the model's ability to predict the target variable.
 These insights can guide further research and model refinement, emphasizing the importance of data-driven approaches in healthcare.
