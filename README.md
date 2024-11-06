@@ -35,7 +35,7 @@ This bar chart shows the execution time for each model, highlighting the computa
 
 ![Model Accuracy](performance/model_accuracy.png)
 
-This bar chart compares the accuracy of each model, providing insight into their predictive performance on the dataset. All of the models performed very well, with the exception of the KNN model, which was implemented by scratch.
+This bar chart compares the accuracy of each model, providing insight into their predictive performance on the dataset. All of the models performed very well, showing a capability of generating a solid predictive model for a profound issue.
 
 | Model            | Accuracy (%) | Execution Time (s) |
 |------------------|--------------|--------------------|
