@@ -1,0 +1,2 @@
+Best Parameters: {'n_estimators': 150, 'min_samples_split': 6, 'min_samples_leaf': 1, 'max_depth': 3, 'learning_rate': 0.03111111111111111}
+Accuracy: 0.9118541033434651

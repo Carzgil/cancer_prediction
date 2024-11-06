@@ -1,0 +1,2 @@
+Best Parameters: {'criterion': 'gini', 'max_depth': 10, 'n_estimators': 50}
+Accuracy: 0.9027355623100304
