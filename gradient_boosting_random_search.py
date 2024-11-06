@@ -5,6 +5,7 @@ from sklearn.metrics import accuracy_score
 import os
 import joblib
 import numpy as np
+import time
 
 # Load the processed dataset
 df = pd.read_csv('data/processed.csv')
@@ -29,8 +30,11 @@ param_dist = {
 }
 
 # Perform randomized search
+start_time = time.time()
 random_search = RandomizedSearchCV(estimator=model, param_distributions=param_dist, n_iter=50, cv=5, scoring='accuracy', n_jobs=-1, random_state=42)
 random_search.fit(X_train, y_train)
+end_time = time.time()
+execution_time = end_time - start_time
 
 # Best parameters and performance
 best_params_gb = random_search.best_params_
@@ -42,8 +46,9 @@ acc_gb = accuracy_score(y_test, y_pred_gb)
 os.makedirs('Model', exist_ok=True)
 os.makedirs('Performance', exist_ok=True)
 
-joblib.dump(best_model_gb, 'Model/best_gradient_boosting_model.pkl')
+joblib.dump(best_model_gb, 'Model/best_gradient_boosting_model_random_search.pkl')
 
 with open('Performance/best_gradient_boosting_performance.txt', 'w') as f:
     f.write(f'Best Parameters: {best_params_gb}\n')
-    f.write(f'Accuracy: {acc_gb}\n') 
+    f.write(f'Accuracy: {acc_gb}\n')
+    f.write(f'Execution Time: {execution_time} seconds\n') 
